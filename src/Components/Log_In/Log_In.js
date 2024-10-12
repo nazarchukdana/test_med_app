@@ -10,7 +10,7 @@ return (
             <div class="not-a-member">
                 <div style={{color: "#4c4c4c"}}>Are you a new member?</div>
                 <div class="signup" >
-                    <a href="../Sign_Up/Sign_up.html" style={{color: "#4b04e2", textDecoration: none, fontFamily: 'Inter', sansSerif}}><b>Sign Up</b></a>
+                    <a href="../Sign_Up/Sign_up.html" style={{color: "#4b04e2", textDecoration: "none", fontFamily: "Inter, sansSerif"}}><b>Sign Up</b></a>
                 </div>
             </div>
         </div>
