@@ -8,9 +8,13 @@ return (
         <div className="sign-up-text">
             <h1 className="sign-up-heading"><b>Sign Up</b></h1>
             <div className="already-a-member">
-                <div style="color: #4c4c4c;">Already a member?</div>
+                <div style={{color: "#4c4c4c"}}>Already a member?</div>
                 <div className="login" >
-                    <a href="../Log_In/Log_In.html" style="color: #4b04e2;text-decoration: none; font-family: 'Inter', sans-serif"><b>Login</b></a>
+                    <a href="../Log_In/Log_In.html" style={{
+                  color: "#4b04e2",
+                  textDecoration: "none",
+                  fontFamily: "Inter, sans-serif",
+                }}><b>Login</b></a>
                 </div>
             </div>
         </div>
@@ -31,7 +35,7 @@ return (
                     </div>
                     <div className="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" name="phone" id="phone" required class="form-control" placeholder="Enter your phone number" aria-describedby="helpId" pattern="[0-9]{10}" // This pattern ensures the phone number has exactly 10 digits
+                        <input type="tel" name="phone" id="phone" required class="form-control" placeholder="Enter your phone number" aria-describedby="helpId" pattern="[0-9]{10}" 
                   title="Phone number must be exactly 10 digits"/> 
                     </div>
                     <div className="form-group"> 
