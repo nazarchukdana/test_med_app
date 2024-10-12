@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './Components/Navbar/Navbar';
 import Landing_page from './Components/Landing_Page/Landing_Page';
 import Sign_Up from './Components/Sign_Up/Sign_Up';
+import Log_In from './Components/Log_In/Log_In';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         {/* Set up BrowserRouter for routing */}
         <BrowserRouter>
           {/* Display the Navbar component */}
-          <Sign_Up/>
+          <Log_In/>
           {/* Set up the Routes for different pages */}
           <Routes>
             {/* Define individual Route components for different pages */}
