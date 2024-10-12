@@ -1,5 +1,7 @@
-import './Landing_Page.css';
-function Landing_page(){
+import React from "react"; // Importing the necessary modules from React library
+import { Link } from "react-router-dom"; // Importing the Link component from react-router-dom library
+import "./LandingPage.css";
+function Landing_Page(){
 return (
     <div>
         <section className="hero-section">
@@ -34,4 +36,4 @@ return (
 
 );
 }
-export default Landing_page;
+export default Landing_Page;
