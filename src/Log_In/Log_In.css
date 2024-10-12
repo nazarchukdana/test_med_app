@@ -1,0 +1,128 @@
+
+.container{
+    position: relative;
+    width: 27.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed to flex-start to prevent extra spacing */
+    padding: 1.5625rem 0.625rem 1.875rem; /* Padding remains unchanged */
+    color: #000;
+    border-radius: 3.125rem; /* Keep border-radius */
+    background-color: #fff; /* White background */
+    border: 0.125rem solid #4b04e2; /* Border color */
+    margin: 2.5rem auto; /* Centering the container */
+    font-family: 'Inter', sans-serif;
+    gap: 2rem;
+
+}
+h1{
+    font-size: 3rem;
+   
+}
+.log-in-text{
+    position: relative;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.not-a-member{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.625rem;
+    font-size: 1.5rem;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+.form-inputs{
+    width: 100%;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 15px;
+text-align: left;
+font-size: 24px;
+font-weight: bold;
+}
+.form-group{
+    position: relative;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+gap: 12px;
+}
+.form-control{
+    width: 350px; /* Set width to 350 pixels */
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+border: 1px solid #666;
+color: #4C4C4C
+}
+.btn-group{
+    width: 100%;
+position: relative;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding: 0 30px; /* Padding for button group */
+}
+.btn{
+    position: relative;
+    height: 50px;
+    padding: 0 20px; 
+    display: inline-block; 
+    line-height: 50px; 
+    white-space: nowrap; 
+    font-weight: bold; 
+    border-radius: 100px;
+    min-width: 7.8125rem;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+.btn-success{
+    background-color: #00E309;
+    border: 2px solid #00e309;
+    color: #fff;
+}
+
+.btn-danger{
+    background-color: #F20000;
+    border: 2px solid #F20000;
+    color: #fff;
+}
+.password-visibility {
+    position: relative; /* Set the position relative to its normal position */
+    top: -39px; /* Move the element 39 pixels up */
+    left: 92%; /* Move the element 92% to the right */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 17px; /* Set font size */
+}
+.forgot-password {
+    font-size: 14px; /* or any smaller size you prefer */
+    color: #4C4C4C;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif; /* Optional: Add some space between the password input and the link */
+}
+
+.forgot-password:hover {
+    text-decoration: underline; /* Optional: Add hover effect if needed */
+}

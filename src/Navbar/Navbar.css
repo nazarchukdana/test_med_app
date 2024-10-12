@@ -1,0 +1,129 @@
+nav {
+    width: 100%;
+    position: fixed;
+    height: 5.625rem; /* 90px / 16 = 5.625rem */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.25rem; /* 20px / 16 = 1.25rem */
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 2.5rem; /* 40px / 16 = 2.5rem */
+    color: #000;
+    font-family: 'Inter', sans-serif;
+}
+.nav_links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3.125rem; /* 50px / 16 = 3.125rem */
+
+}
+.link a {
+    font-size: 0.875rem;
+    color: #000;
+    font-family: 'Inter', sans-serif; /* Ensure font-family is applied to links */
+    text-decoration: none;
+    transition: 0.3s;
+}
+.link a:hover {
+    color: #4b04e2;
+}
+.btn1 {
+    position: relative;
+    height: 50px;
+    padding: 0 20px; 
+    display: inline-block; 
+    line-height: 50px; 
+    white-space: nowrap; 
+    font-weight: bold; 
+    border-radius: 100px;
+    background-color: #fff;
+    border: 2px solid #4b04e2;
+    min-width: 7.8125rem;
+}
+.btn1:hover{
+    background-color: #4b04e2;
+    color: #fff;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    min-width: 120px;
+    padding: 8px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+/* Styling for the user welcome message */
+.welcome-user {
+    position: relative;
+    cursor: pointer;
+}
+/* Display dropdown menu on hover */
+.welcome-user:hover .dropdown-menu {
+    display: block;
+}
+/* Styling for the items in the dropdown menu */
+.dropdown-menu li {
+    display: block;
+    width: 150px;
+    padding:5px;
+}
+/* Styling for links in the dropdown menu */
+.dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+/* Hover effect for links in the dropdown menu */
+.dropdown-menu li a:hover {
+    color: #2190ff;
+}
+@media (max-width: 768px) {
+    .nav__logo {
+        margin-right: auto;
+    }
+    .nav__icon {
+        display: block;
+    }
+    .nav__links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .nav__links.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin: auto;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        animation: slideDown 0.5s ease-in-out; /* Animation effect */
+    }
+}
+/* Keyframes for slide down animation */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

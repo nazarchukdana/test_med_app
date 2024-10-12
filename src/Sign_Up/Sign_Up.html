@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Following code has been commented with appropriate comments for your reference. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="Sign_Up.css"> <!-- Linking external CSS file -->
+</head>
+<body>
+    <div class="container" > <!-- Main container with margin-top -->
+        <div class="sign-up-text">
+            <h1 class="sign-up-heading"><b>Sign Up</b></h1>
+            <div class="already-a-member">
+                <div style="color: #4c4c4c;">Already a member?</div>
+                <div class="login" >
+                    <a href="../Log_In/Log_In.html" style="color: #4b04e2;text-decoration: none; font-family: 'Inter', sans-serif"><b>Login</b></a>
+                </div>
+            </div>
+        </div>
+            <div class="signup-form"> <!-- Form for user sign-up -->
+                <form>
+                    <div class="form-inputs"> <!-- Start of the form -->
+                    <div class="form-group"> <!-- Form group for role selection -->
+                        <label for="role">Role</label> <!-- Label for role dropdown -->
+                        <select name="role" id="role" required class="form-control" > <!-- Dropdown select for roles -->
+                            <option value="" disabled selected>Select your role</option> <!-- Placeholder option -->
+                            <option value="admin">Doctor</option>
+                            <option value="editor">Patient</option>
+                        </select>
+                    </div>
+                    <div class="form-group"> <!-- Form group for user's name -->
+                        <label for="name">Name</label> <!-- Label for name input field -->
+                        <input type="text" name="name" id="name" required class="form-control" placeholder="Enter your name" aria-describedby="helpId" /> <!-- Text input field for name -->
+                    </div>
+                    <div class="form-group"> <!-- Form group for user's phone number -->
+                        <label for="phone">Phone</label> <!-- Label for phone input field -->
+                        <input type="tel" name="phone" id="phone" required class="form-control" placeholder="Enter your phone number" aria-describedby="helpId" /> <!-- Tel input field for phone number -->
+                    </div>
+                    <div class="form-group"> <!-- Form group for user's email -->
+                        <label for="email">Email</label> <!-- Label for email input field -->
+                        <input type="email" name="email" id="email" required class="form-control" placeholder="Enter your email" aria-describedby="helpId" /> <!-- Email input field -->
+                    </div>
+                    <div class="form-group"> <!-- Form group for user's password -->
+                        <label for="password">Password</label> <!-- Label for password input field -->
+                        <input name="password" id="password" required class="form-control" placeholder="Enter your password" aria-describedby="helpId" /> <!-- Password input field -->
+                    </div>
+                </div>
+                    <div class="btn-group"> <!-- Button group for form submission and reset -->
+                        <button type="submit" class="btn btn-success">Submit</button> <!-- Submit button -->
+                        <button type="reset" class="btn btn-danger">Reset</button> <!-- Reset button -->
+                    </div>
+                </form> <!-- End of the form -->
+            </div>
+        
+    </div>
+</body>
+</html>
