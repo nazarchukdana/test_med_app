@@ -81,7 +81,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: space-between;
-padding: 0 30px; /* Padding for button group */
+/*padding: 0 30px;*/
 }
 .btn{
     position: relative;
@@ -93,6 +93,7 @@ padding: 0 30px; /* Padding for button group */
     font-weight: bold; 
     border-radius: 100px;
     min-width: 7.8125rem;
+    font-size: 14px;
 }
 .btn:hover{
     background-color: #fff;
