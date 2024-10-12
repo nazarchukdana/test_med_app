@@ -32,9 +32,9 @@ return (
                     <a href="#">Reviews</a>
                 </li>
                 <li className="link">
-                    <a href="../Sign_Up//Sign_Up.html">
+                    <Link to="/signup">
                         <button className="btn1">Sign Up</button>
-                    </a>
+                    </Link>
                 </li>
                 <li className="link">
                     <a href="../Login/Login.html">
