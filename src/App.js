@@ -7,6 +7,7 @@ import Landing_Page from './Components/Landing_Page/Landing_Page';
 import Sign_Up from './Components/Sign_Up/Sign_Up';
 import Log_In from './Components/Log_In/Log_In';
 import InstantConsultation from './Components/Instant_Consultation/InstantConsultation';
+import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
 
 function App() {
     const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
             <Route path="/signup" element={<Sign_Up />} />
             <Route path="/login" element={<Log_In />} />
             <Route path="/instant-consultation" element={<InstantConsultation />} />
+            <Route path="/find-doctor" element={<FindDoctorSearch/>}/>
             {/* Define individual Route components for different pages */}
           </Routes>
         
