@@ -1,6 +1,9 @@
 
 nav {
     width: 100%;
+    background-color: #fff;
+    top: 0; /* Ensures the navbar stays at the top */
+    left: 0;
     position: fixed;
     height: 5.625rem; /* 90px / 16 = 5.625rem */
     display: flex;
@@ -13,6 +16,7 @@ nav {
     font-size: 2.5rem; /* 40px / 16 = 2.5rem */
     color: #000;
     font-family: 'Inter', sans-serif;
+    z-index: 999;
 }
 /*.nav_links:active{
     list-style: none;
@@ -51,17 +55,20 @@ nav {
     font-weight: bold; 
     border-radius: 100px;
     min-width: 7.8125rem;
-    border: 2px solid #4b04e2;
+    
 }
 
 .btn1{
+    border: 2px solid #4b04e2;
     background-color: #fff;
+    color: #000;
 }
 .btn1:hover{
     background-color: #4b04e2;
     color: #fff;
 }
-.btn2 {
+.btn2{
+    border: 2px solid #4b04e2;
     background-color: #4b04e2;
     color: #fff;
 }
