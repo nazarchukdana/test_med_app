@@ -9,7 +9,8 @@ const Sign_Up = () => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
-    const [showerr, setShowerr] = useState(''); // State to show error messages
+    const [showerr, setShowerr] = useState('');
+// State to show error messages
     const navigate = useNavigate(); // Navigation hook from react-router
     // Function to handle form submission
     const register = async (e) => {
@@ -82,7 +83,7 @@ return (
                     </div>
                     <div className="form-group">
                         <label for="phone">Phone</label>
-                  <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" name="phone" id="phone" className="form-control" placeholder="Enter your phone" aria-describedby="helpId" />
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" name="phone" id="phone" className="form-control" placeholder="Enter your phone"  aria-describedby="helpId" />
                             {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                     </div>
                     <div className="form-group"> 

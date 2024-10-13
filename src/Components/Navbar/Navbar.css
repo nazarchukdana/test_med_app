@@ -14,14 +14,22 @@ nav {
     color: #000;
     font-family: 'Inter', sans-serif;
 }
-.nav_links {
+/*.nav_links:active{
     list-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 3.125rem; /* 50px / 16 = 3.125rem */
+    gap: 3.125rem;
 
+}*/
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3.125rem;
+    
 }
 .link a {
     font-size: 0.875rem;
@@ -87,7 +95,22 @@ nav {
 .dropdown-menu li a:hover {
     color: #2190ff;
 }
-@media (max-width: 768px) {
+
+.nav__icon {
+    display: none;
+    cursor: pointer;
+}
+@media (max-width: 1024px) {
+    .nav__links {
+        gap: 1.5rem; /* Reduce gap between links for mid-sized screens */
+    }
+
+    .link a {
+        font-size: 0.75rem; /* Slightly smaller font on mid-sized screens */
+    }
+}
+
+@media (max-width: 900px) {
     .nav__logo {
         margin-right: auto;
     }
