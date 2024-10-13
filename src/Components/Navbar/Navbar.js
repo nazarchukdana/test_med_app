@@ -75,7 +75,10 @@ return (
                 {isLoggedIn?(
           <>
             <li className="link">
-              <button className="btn2" onClick={handleLogout}>
+                <a href="#"><b>Welcome, {username}!</b></a>
+            </li>
+            <li className="link">
+              <button className="btn btn2" onClick={handleLogout}>
                 Logout
               </button>
             </li>
@@ -85,12 +88,12 @@ return (
           <>
                 <li className="link">
                     <Link to="/signup">
-                        <button className="btn1">Sign Up</button>
+                        <button className="btn btn1">Sign Up</button>
                     </Link>
                 </li>
                 <li className="link">
                     <Link to="/login">
-                        <button className="btn1">Log In</button>
+                        <button className="btn btn1">Log In</button>
                     </Link>
                 </li>
             </>)}

@@ -41,7 +41,7 @@ nav {
 .link a:hover {
     color: #4b04e2;
 }
-.btn1 {
+.btn{
     position: relative;
     height: 50px;
     padding: 0 20px; 
@@ -50,13 +50,24 @@ nav {
     white-space: nowrap; 
     font-weight: bold; 
     border-radius: 100px;
-    background-color: #fff;
-    border: 2px solid #4b04e2;
     min-width: 7.8125rem;
+    border: 2px solid #4b04e2;
+}
+
+.btn1 {
+    background-color: #fff;
 }
 .btn1:hover{
     background-color: #4b04e2;
     color: #fff;
+}
+.btn2 {
+    background-color: #4b04e2;
+    color: #fff;
+}
+.btn1:hover{
+    background-color: #fff;
+    color: #000;
 }
 .dropdown-menu {
     position: absolute;

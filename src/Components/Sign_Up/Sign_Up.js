@@ -79,12 +79,10 @@ return (
                     <div className="form-group"> 
                         <label for="name">Name</label>
                         <input value={name} onChange={(e) => setName(e.target.value)} type="text" name="name" id="name" className="form-control" placeholder="Enter your name" aria-describedby="helpId" />
-                            {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                     </div>
                     <div className="form-group">
                         <label for="phone">Phone</label>
                   <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" name="phone" id="phone" className="form-control" placeholder="Enter your phone"  aria-describedby="helpId" />
-                            {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                     </div>
                     <div className="form-group"> 
                         <label for="email">Email</label> 
@@ -94,7 +92,6 @@ return (
                     <div className="form-group"> 
                         <label for="password">Password</label> 
                         <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="password" className="form-control" placeholder="Enter your password" aria-describedby="helpId" />
-                            {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>} 
                     </div>
                 </div>
                     <div className="btn-group"> 
