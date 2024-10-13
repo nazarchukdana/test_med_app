@@ -9,18 +9,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
   }
-
+  .cancel-appointment {
+    background-color: red;
+  }
   
   .doctor-card-details-container {
     padding: 20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 18px;
-    border-radius: 4px;
-    background-color: #fff;
   }
   
   .doctor-card-profile-image-container {
@@ -67,7 +61,7 @@
     
   }
   
-.book-appointment-button {
+  .book-appoinment-btn {
     background-color: #3498db;
     color: #fff;
     border: none;
@@ -76,6 +70,7 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  
   .book-appoinment-btn div:nth-child(2) {
     font-size: 12px;
     font-weight: bold;
@@ -145,4 +140,52 @@
 .cancel-appointment-btn:hover {
   background-color: #d63027;
 }
-  
+.appointment-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  /* height: auto;
+  overflow-y: auto; */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.btnslot{
+  background-color: green;
+  cursor: pointer;
+  /* color: rgb(249, 60, 60); */
+}

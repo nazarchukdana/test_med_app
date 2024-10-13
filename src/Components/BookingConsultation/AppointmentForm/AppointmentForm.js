@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import './AppointmentForm.css'
 
 const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [selectedDate, setSelectedDate] = useState('');
-    const [selectedTime, setSelectedTime] = useState('');
+    const [date, setSelectedDate] = useState('');
+    const [time, setSelectedTime] = useState('');
     const timeSlots = [
         '09:00 AM',
         '10:00 AM',
@@ -19,7 +18,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
   
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        onSubmit({ name, phoneNumber, selectedDate, selectedTime });
+        onSubmit({ name, phoneNumber, date, time });
         setName('');
         setPhoneNumber('');
         setSelectedDate('');
@@ -53,7 +52,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
             <input
               type="date"
               id="date"
-              value={selectedDate}
+              value={date}
               onChange={(e) => setSelectedDate(e.target.value)}
               required
             />
@@ -62,7 +61,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
         <label htmlFor="time">Select Time:</label>
         <select
           id="time"
-          value={selectedTime}
+          value={time}
           onChange={(e) => setSelectedTime(e.target.value)}
           required
         >

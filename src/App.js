@@ -7,12 +7,13 @@ import Landing_Page from './Components/Landing_Page/Landing_Page';
 import Sign_Up from './Components/Sign_Up/Sign_Up';
 import Log_In from './Components/Log_In/Log_In';
 import InstantConsultation from './Components/Instant_Consultation/InstantConsultation';
-import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
+import BookingConsultation from './Components/BookingConsultation/BookingConsultation';
 
 function App() {
-    const location = useLocation();
+
   return (
     <div className="App">
+        <BrowserRouter>
         {/* Set up BrowserRouter for routing */}
         <Navbar/>
           {/* Display the Navbar component */}
@@ -23,19 +24,12 @@ function App() {
             <Route path="/signup" element={<Sign_Up />} />
             <Route path="/login" element={<Log_In />} />
             <Route path="/instant-consultation" element={<InstantConsultation />} />
-            <Route path="/find-doctor" element={<FindDoctorSearch/>}/>
+            <Route path="/booking-consultation" element={<BookingConsultation/>}/>
             {/* Define individual Route components for different pages */}
           </Routes>
-        
+        </BrowserRouter>
     </div>
   );
 }
-function WrappedApp() {
-  return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-}
 
-export default WrappedApp;
+export default App;

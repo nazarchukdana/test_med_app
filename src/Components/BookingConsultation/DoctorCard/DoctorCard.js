@@ -43,8 +43,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
           <div className="doctor-card-detail-consultationfees">Ratings: {ratings}</div>
         </div>
       </div>
-    </div>
-    <div className="doctor-card-options-container">
+      <div className="doctor-card-options-container">
        <Popup
           style={{ backgroundColor: '#FFFFFF' }}
           trigger={
@@ -82,6 +81,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
+                      <p>Date: {appointment.date}</p>
+                      <p>Time: {appointment.time}</p>
                       <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
                     </div>
                   ))}
@@ -93,6 +94,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
           )}
         </Popup> 
       </div>
+    </div>
+    
     </div>
   );
 };

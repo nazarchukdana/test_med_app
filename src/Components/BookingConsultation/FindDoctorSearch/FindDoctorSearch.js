@@ -11,20 +11,19 @@ const FindDoctorSearch = () => {
     const [doctorResultHidden, setDoctorResultHidden] = useState(true);
     const [searchDoctor, setSearchDoctor] = useState('');
     const [specialities, setSpecialities] = useState(initSpeciality);
-    const [isSearched, setIsSearched] = useState(false);
     const navigate = useNavigate();
     const handleDoctorSelect = (speciality) => {
         setSearchDoctor(speciality);
         setDoctorResultHidden(true);
-        navigate(`/find-doctor?speciality=${speciality}`);
+        navigate(`/booking-consultation?speciality=${speciality}`);
         window.location.reload();
     }
     return (
         <div className='finddoctor'>
             <center>
                 <h1>Find a doctor</h1>
-                <div className="main img">               <i style={{color:'#000000',fontSize:'20rem'}} className="fa fa-user-md"></i>
-        </div>                <div className="home-search-container"  style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <div>               <i style={{color:'#000000',fontSize:'20rem'}} className="fa fa-user-md"></i>
+</div>                <div className="home-search-container"  style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className="doctor-search-box">
                     {/* <p>Perform a search to see the results.</p> */}
 
@@ -44,7 +43,6 @@ const FindDoctorSearch = () => {
                 </div>
             </center>
         </div>
-        
     )
 }
 
