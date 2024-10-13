@@ -39,7 +39,8 @@ function Navbar(){
 
       if (storedemail) {
             setIsLoggedIn(true);
-            setUsername(storedemail);
+            const extractedUsername = storedemail.split('@')[0]; // Extract the part before "@"
+            setUsername(extractedUsername);
           }
         }, []);
 return (

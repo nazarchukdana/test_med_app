@@ -54,7 +54,7 @@ nav {
     border: 2px solid #4b04e2;
 }
 
-.btn1 {
+.btn1{
     background-color: #fff;
 }
 .btn1:hover{
@@ -65,7 +65,7 @@ nav {
     background-color: #4b04e2;
     color: #fff;
 }
-.btn1:hover{
+.btn2:hover{
     background-color: #fff;
     color: #000;
 }
