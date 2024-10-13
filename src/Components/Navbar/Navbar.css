@@ -1,7 +1,7 @@
 
 nav {
     width: 100%;
-    /*background-color: #fff;*/
+    background-color: #fff;
     top: 0; /* Ensures the navbar stays at the top */
     left: 0;
     position: fixed;
