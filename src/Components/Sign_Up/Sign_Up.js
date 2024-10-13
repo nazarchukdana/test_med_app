@@ -56,11 +56,11 @@ return (
             <div className="already-a-member">
                 <div style={{color: "#4c4c4c"}}>Already a member?</div>
                 <div className="login" >
-                    <a href="../Log_In/Log_In.html" style={{
+                    <Link to="/login" style={{
                   color: "#4b04e2",
                   textDecoration: "none",
                   fontFamily: "Inter, sans-serif",
-                }}><b>Login</b></a>
+                }}><b>Login</b></Link>
                 </div>
             </div>
         </div>
