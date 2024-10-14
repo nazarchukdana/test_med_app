@@ -17,17 +17,42 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
+    localStorage.removeItem(name);
+
+     // Remove the appointment for this doctor
+
+  // Dispatch the event to notify others of the appointment cancellation
+    dispatchAppointmentEvent();
+  };
+  
+
+ const dispatchAppointmentEvent = () => {
+  const event = new Event('appointmentUpdated');
+  window.dispatchEvent(event);
+};
+
+const handleFormSubmit = (appointmentData) => {
+  const newAppointment = {
+    id: uuidv4(),
+    ...appointmentData,
+  };
+  
+  const doctorDataToStore = {
+    name,
+    speciality,
   };
 
-  const handleFormSubmit = (appointmentData) => {
-    const newAppointment = {
-      id: uuidv4(),
-      ...appointmentData,
-    };
-    const updatedAppointments = [...appointments, newAppointment];
-    setAppointments(updatedAppointments);
-    setShowModal(false);
-  };
+  const updatedAppointments = [...appointments, newAppointment];
+  setAppointments(updatedAppointments);
+  setShowModal(false);
+  
+  // Store data in localStorage
+  localStorage.setItem('doctorData', JSON.stringify(doctorDataToStore));
+  localStorage.setItem(name, JSON.stringify(newAppointment)); // Store updated appointments
+
+  // Dispatch the event to notify others of the new appointment
+  dispatchAppointmentEvent();
+};
 
   return (
     <div>
