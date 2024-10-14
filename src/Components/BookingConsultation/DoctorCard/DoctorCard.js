@@ -7,41 +7,27 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
-    const [showModal, setShowModal] = useState(false);
-    const [appointments, setAppointments] = useState(() => {
-      const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-      return storedAppointments.filter(app => app.doctorName === name);
-    });
-  
-    const handleBooking = () => {
-      setShowModal(true);
+  const [showModal, setShowModal] = useState(false);
+  const [appointments, setAppointments] = useState([]);
+
+  const handleBooking = () => {
+    setShowModal(true);
+  };
+
+  const handleCancel = (appointmentId) => {
+    const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
+    setAppointments(updatedAppointments);
+  };
+
+  const handleFormSubmit = (appointmentData) => {
+    const newAppointment = {
+      id: uuidv4(),
+      ...appointmentData,
     };
-  
-    const handleCancel = (appointmentId) => {
-      const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
-      setAppointments(updatedAppointments);
-  
-      const allAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-      const updatedAllAppointments = allAppointments.filter(app => app.id !== appointmentId);
-      localStorage.setItem('appointments', JSON.stringify(updatedAllAppointments));  // Update localStorage
-    };
-  
-    const handleFormSubmit = (appointmentData) => {
-      const newAppointment = {
-        id: uuidv4(),
-        doctorName: name,
-        ...appointmentData,
-      };
-  
-      const updatedAppointments = [...appointments, newAppointment];
-      setAppointments(updatedAppointments);
-  
-      // Save globally to "appointments" key in localStorage
-      const allAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-      localStorage.setItem('appointments', JSON.stringify([...allAppointments, newAppointment]));
-  
-      setShowModal(false);
-    };
+    const updatedAppointments = [...appointments, newAppointment];
+    setAppointments(updatedAppointments);
+    setShowModal(false);
+  };
 
   return (
     <div>
