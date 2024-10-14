@@ -13,46 +13,44 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const handleBooking = () => {
     setShowModal(true);
   };
+ const dispatchAppointmentEvent = (type) => {
+    const event = new CustomEvent('appointmentUpdated', { detail: { type } });
+    window.dispatchEvent(event);
+  };
 
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
-    localStorage.removeItem(name);
+    
+    // Clear appointment data from local storage
+    localStorage.removeItem(name); // Remove the appointment for this doctor
 
-     // Remove the appointment for this doctor
-
-  // Dispatch the event to notify others of the appointment cancellation
-    dispatchAppointmentEvent();
-  };
-  
-
- const dispatchAppointmentEvent = () => {
-  const event = new Event('appointmentUpdated');
-  window.dispatchEvent(event);
-};
-
-const handleFormSubmit = (appointmentData) => {
-  const newAppointment = {
-    id: uuidv4(),
-    ...appointmentData,
-  };
-  
-  const doctorDataToStore = {
-    name,
-    speciality,
+    // Dispatch the event to notify others of the appointment cancellation
+    dispatchAppointmentEvent('cancel');
   };
 
-  const updatedAppointments = [...appointments, newAppointment];
-  setAppointments(updatedAppointments);
-  setShowModal(false);
-  
-  // Store data in localStorage
-  localStorage.setItem('doctorData', JSON.stringify(doctorDataToStore));
-  localStorage.setItem(name, JSON.stringify(newAppointment)); // Store updated appointments
+  const handleFormSubmit = (appointmentData) => {
+    const newAppointment = {
+      id: uuidv4(),
+      ...appointmentData,
+    };
 
-  // Dispatch the event to notify others of the new appointment
-  dispatchAppointmentEvent();
-};
+    const doctorDataToStore = {
+      name,
+      speciality,
+    };
+
+    const updatedAppointments = [...appointments, newAppointment];
+    setAppointments(updatedAppointments);
+    setShowModal(false);
+    
+    // Store data in localStorage
+    localStorage.setItem('doctorData', JSON.stringify(doctorDataToStore));
+    localStorage.setItem(name, JSON.stringify(newAppointment)); // Store updated appointments
+
+    // Dispatch the event to notify others of the new appointment
+    dispatchAppointmentEvent('create');
+  };
 
   return (
     <div>

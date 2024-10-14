@@ -32,7 +32,7 @@ const Notification = ({ children }) => {
   };
 
   // Initial load of data
-  useEffect(() => {
+ useEffect(() => {
     loadData();
 
     // Listen for storage events
@@ -40,15 +40,20 @@ const Notification = ({ children }) => {
       loadData();
     };
 
-    window.addEventListener('storage', handleStorageChange);
-
-    // Cleanup event listener on component unmount
-   const handleAppointmentUpdate = () => {
-      loadData(); // Refresh data on appointment update
+    const handleAppointmentUpdate = (event) => {
+      if (event.detail.type === 'cancel') {
+        setAppointmentData({});
+        setDoctorData({}); // Clear appointment data
+        setShowNotification(false); // Hide notification when appointment is canceled
+      } else {
+        loadData(); // Reload data if a new appointment is created
+      }
     };
 
+    window.addEventListener('storage', handleStorageChange);
     window.addEventListener('appointmentUpdated', handleAppointmentUpdate); // Listen for custom event
 
+    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('storage', handleStorageChange);
       window.removeEventListener('appointmentUpdated', handleAppointmentUpdate); // Cleanup event listener
@@ -69,7 +74,7 @@ useEffect(() => {
     <div className="notification-layout">
       <Navbar />
       {children}
-      {/*isLoggedIn &&*/ showNotification ? (
+      {/*isLoggedIn &&*/ showNotification && (
         <>
         <div className="notification-box">
           <div className="notification-content">
@@ -85,8 +90,7 @@ useEffect(() => {
           </div>
         </div>
         </>
-      ):
-      <div></div> }
+      )};
     </div>
   );
 };
