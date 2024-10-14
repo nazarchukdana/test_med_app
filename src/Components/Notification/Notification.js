@@ -6,8 +6,8 @@ const Notification = ({ children }) => {
   // State variables to manage user authentication, username, doctor data, and appointment data
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
-  const [doctorData, setDoctorData] = useState({});
-  const [appointmentData, setAppointmentData] = useState({});
+  const [doctorData, setDoctorData] = useState(null);
+  const [appointmentData, setAppointmentData] = useState(null);
    const [showNotification, setShowNotification] = useState(false);
   // useEffect hook to perform side effects in the component
   const loadData = () => {
@@ -42,8 +42,8 @@ const Notification = ({ children }) => {
 
     const handleAppointmentUpdate = (event) => {
       if (event.detail.type === 'cancel') {
-        setAppointmentData({});
-        setDoctorData({}); // Clear appointment data
+        setAppointmentData(null);
+        setDoctorData(null); // Clear appointment data
         setShowNotification(false); // Hide notification when appointment is canceled
       } else {
         loadData(); // Reload data if a new appointment is created
@@ -78,7 +78,7 @@ useEffect(() => {
         <>
         <div className="notification-box">
           <div className="notification-content">
-            <h3>appointment Details</h3>
+            <h3>Appointment Details</h3>
               <div className="appointment-info">
                 <p><strong>Doctor:</strong> {doctorData?.name}</p>
                  <p><strong>Speciality</strong> {doctorData?.speciality}</p>
