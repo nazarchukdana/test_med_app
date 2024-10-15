@@ -1,9 +1,10 @@
 .review-form-container {
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  
+  background-color: #fff;
+  /* Ensure content appears after the Navbar */
+  margin-top: 80px; /* Adjust this based on Navbar height */
 }
 
 .consultation-table {
@@ -22,15 +23,17 @@
   background-color: #f2f2f2;
 }
 
+/* Make feedback buttons blue */
 .feedback-button {
   padding: 8px 12px;
-  background-color: #4CAF50;
+  background-color: #007BFF; /* Blue color */
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
 }
 
+/* Hover effect for feedback buttons */
 .feedback-button:hover {
-  background-color: #45a049;
+  background-color: #0056b3; /* Darker blue on hover */
 }

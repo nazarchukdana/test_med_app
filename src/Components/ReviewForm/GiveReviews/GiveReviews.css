@@ -1,0 +1,71 @@
+.give-review-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 500px;
+  }
+  
+  .give-review-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .give-review-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .give-review-container label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .give-review-container textarea,
+  .give-review-container input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .give-review-container textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .give-review-container input[type="number"] {
+    width: 60px;
+  }
+  
+  .give-review-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .give-review-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .give-review-container .warning {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .give-review-container textarea:focus,
+  .give-review-container input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }

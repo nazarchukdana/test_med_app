@@ -7,7 +7,8 @@ import Sign_Up from './Components/Sign_Up/Sign_Up';
 import Log_In from './Components/Log_In/Log_In';
 import InstantConsultation from './Components/Instant_Consultation/InstantConsultation';
 import BookingConsultation from './Components/BookingConsultation/BookingConsultation';
-import Notification from './Components/Notification/Notification'; // Import Notification component
+import Notification from './Components/Notification/Notification';
+import ReviewForm from './Components/ReviewForm/ReviewForm'; // Import Notification component
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<Log_In />} />
             <Route path="/instant-consultation" element={<InstantConsultation />} />
             <Route path="/booking-consultation" element={<BookingConsultation />} />
+            <Route path="/reviews" element={<ReviewForm />} />
             {/* Define individual Route components for different pages */}
           </Routes>
         </Notification>
