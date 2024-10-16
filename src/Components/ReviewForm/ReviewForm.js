@@ -49,10 +49,12 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className="review-form-container">
-      <h2>Reviews</h2>
+    <>
+   
       {/* Render consultation table */}
       {!selectedConsultation ? (
+        <div className="review-form-container">
+            <h2>Reviews</h2>
         <table className="consultation-table">
           <thead>
             <tr>
@@ -83,6 +85,7 @@ const ReviewForm = () => {
             ))}
           </tbody>
         </table>
+        </div>
       ) : (
         // Render GiveReviews component for the selected consultation
         <GiveReviews
@@ -90,7 +93,7 @@ const ReviewForm = () => {
           onSubmit={handleReviewSubmit}
         />
       )}
-    </div>
+    </>
   );
 };
 

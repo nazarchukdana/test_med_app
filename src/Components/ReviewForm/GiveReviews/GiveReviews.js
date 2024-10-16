@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './GiveReviews.css';
-
+import StarRating from './StarRating';
+  
 // Function component for giving reviews
 function GiveReviews({ consultation, onSubmit }) {
   // State variables using useState hook
   const [formData, setFormData] = useState({
-    name: consultation.doctorName,
-    review: consultation.review || '',
+    name: '',
+    review: '',
     rating: 0,
     id: consultation.id,
   });
@@ -20,22 +21,34 @@ function GiveReviews({ consultation, onSubmit }) {
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.review && formData.rating > 0) {
+    if (formData.review && formData.name && formData.rating > 0) {
       setShowWarning(false);
       onSubmit(formData); // Submit the review data to parent (ReviewForm)
     } else {
       setShowWarning(true); // Show warning if fields are empty
     }
+    setFormData({
+      name: '',
+      review: '',
+      rating: 0
+    });
+  };
+  const handleRatingChange = (newRating) => {
+    setFormData({ ...formData, rating: newRating });
   };
 
   return (
-    <div>
-      <h2>Provide Feedback for {consultation.doctorName}</h2>
+    <div className="give-review-container">
+      <h2>Provide Feedback</h2>
       <form onSubmit={handleSubmit}>
         {showWarning && <p className="warning">Please fill out all fields.</p>}
         <div>
+            <label htmlFor="name">Name:</label>
+            <input classname="input" type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+          </div>
+        <div>
           <label htmlFor="review">Review:</label>
-          <textarea
+          <textarea classname="input"
             id="review"
             name="review"
             value={formData.review}
@@ -43,16 +56,8 @@ function GiveReviews({ consultation, onSubmit }) {
           />
         </div>
         <div>
-          <label htmlFor="rating">Rating (1-5):</label>
-          <input
-            type="number"
-            id="rating"
-            name="rating"
-            value={formData.rating}
-            min="1"
-            max="5"
-            onChange={handleChange}
-          />
+          <label>Rating:</label>
+          <StarRating rating={formData.rating} onRatingChange={handleRatingChange} />
         </div>
         <button type="submit">Submit Review</button>
       </form>
