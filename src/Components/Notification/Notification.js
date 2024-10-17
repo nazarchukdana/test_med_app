@@ -7,27 +7,22 @@ const Notification = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [doctorData, setDoctorData] = useState(null);
-  const [appointmentData, setAppointmentData] = useState(null);
+  const [appointments, setAppointments] = useState([]);
    const [showNotification, setShowNotification] = useState(false);
   // useEffect hook to perform side effects in the component
   const loadData = () => {
     const storedUsername = sessionStorage.getItem('email');
-    const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
+    const storedAppointments = JSON.parse(localStorage.getItem('allAppointments')) || [];
     if (storedUsername) {
       setIsLoggedIn(true);
       setUsername(storedUsername);
     }
-
-    if (storedDoctorData) {
-      setDoctorData(storedDoctorData);
-    }
-
-    if (storedAppointmentData) {
-      setAppointmentData(storedAppointmentData);
-      setShowNotification(true); // Show notification if appointment data is present
+    if (storedAppointments.length > 0) {
+      setAppointments(storedAppointments);
+      setShowNotification(true);
     } else {
-      setShowNotification(false); // Hide notification if no appointment data
+      setAppointments([]);
+      setShowNotification(false);
     }
   };
 
@@ -41,18 +36,13 @@ const Notification = ({ children }) => {
     };
 
     const handleAppointmentUpdate = (event) => {
-      if (event.detail.type === 'cancel') {
-        setAppointmentData(null);
-        setDoctorData(null); // Clear appointment data
-        setShowNotification(false); // Hide notification when appointment is canceled
-      } else {
-        loadData(); // Reload data if a new appointment is created
+       if (event.detail.type === 'cancel' || event.detail.type === 'create') {
+        loadData(); // Reload data if an appointment is canceled
       }
     };
 
     window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('appointmentUpdated', handleAppointmentUpdate); // Listen for custom event
-
+    window.addEventListener('appointmentUpdated', handleAppointmentUpdate);
     // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('storage', handleStorageChange);
@@ -76,19 +66,20 @@ useEffect(() => {
       {children}
       {/*isLoggedIn &&*/ showNotification && (
         <>
-        <div className="notification-box">
-          <div className="notification-content">
-            <h3>Appointment Details</h3>
-              <div className="appointment-info">
-                <p><strong>Doctor:</strong> {doctorData?.name}</p>
-                 <p><strong>Speciality</strong> {doctorData?.speciality}</p>
-                  <p><strong>Name</strong> {appointmentData?.name}</p>
-                   <p><strong>Date</strong> {appointmentData?.date}</p>
-                    <p><strong>Time</strong> {appointmentData?.time}</p>
-              </div>
-            
+          <div className="notification-box">
+            <div className="notification-content">
+              <h3>Appointment Details</h3>
+              {appointments.map((appointmentData, index) => (
+                <div key={index} className="appointment-info">
+                  <p><strong>Doctor:</strong> {appointmentData.doctor.name}</p>
+                  <p><strong>Speciality:</strong> {appointmentData.doctor.speciality}</p>
+                  <p><strong>Patient Name:</strong> {appointmentData.appointment.name}</p>
+                  <p><strong>Date:</strong> {appointmentData.appointment.date}</p>
+                  <p><strong>Time:</strong> {appointmentData.appointment.time}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
         </>
       )};
     </div>
