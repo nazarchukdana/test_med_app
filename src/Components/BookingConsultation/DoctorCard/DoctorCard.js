@@ -21,9 +21,9 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
-    
-    // Clear appointment data from local storage
-    localStorage.removeItem(name); // Remove the appointment for this doctor
+    let allAppointments = JSON.parse(localStorage.getItem('allAppointments')) || [];
+    allAppointments = allAppointments.filter(app => app.appointment.id !== appointmentId);
+    localStorage.setItem('allAppointments', JSON.stringify(allAppointments)); // Remove the appointment for this doctor
 
     // Dispatch the event to notify others of the appointment cancellation
     dispatchAppointmentEvent('cancel');
@@ -35,7 +35,7 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
       ...appointmentData,
     };
 
-    const doctorDataToStore = {
+    const doctorData = {
       name,
       speciality,
     };
@@ -45,8 +45,13 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
     setShowModal(false);
     
     // Store data in localStorage
-    localStorage.setItem('doctorData', JSON.stringify(doctorDataToStore));
-    localStorage.setItem(name, JSON.stringify(newAppointment)); // Store updated appointments
+    let allAppointments = JSON.parse(localStorage.getItem('allAppointments')) || [];
+
+    // Add new appointment along with doctor details to the global array
+    allAppointments.push({ doctor: doctorData, appointment: newAppointment });
+
+    // Save the updated appointments array back to localStorage
+    localStorage.setItem('allAppointments', JSON.stringify(allAppointments));
 
     // Dispatch the event to notify others of the new appointment
     dispatchAppointmentEvent('create');
