@@ -14,14 +14,14 @@ function StarRating({ rating, onRatingChange }) {
               type="radio"
               name="rating"
               value={ratingValue}
-              onClick={() => onRatingChange(ratingValue)}
+                onClick={() => onRatingChange(ratingValue)} // Call parent function when clicked
               style={{ display: 'none' }} // Hide the radio button
             />
             <i
               className={`fa fa-star ${ratingValue <= (hover || rating) ? 'star-filled' : 'star-empty'}`}
-              onMouseEnter={() => setHover(ratingValue)}
-              onMouseLeave={() => setHover(0)}
-              style={{ cursor: 'pointer', fontSize: '24px' }} // Styling the stars
+              onMouseEnter={() => setHover(ratingValue)} // Set hover state when mouse enters
+              onMouseLeave={() => setHover(0)} // Reset hover state when mouse leaves
+              style={{ cursor: 'pointer', fontSize: '24px' }} // Star styling
             />
           </label>
         );

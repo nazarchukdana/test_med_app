@@ -7,8 +7,9 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   transition: transform 0.3s ease;
-  margin-top: 100px; /* Adjust this based on the height of your navbar */
-  font-family: 'Inter', sans-serif; /* Apply Inter to container text */
+  margin-top: 100px; /* Adjust based on navbar height */
+  font-family: 'Inter', sans-serif; /* Apply Inter font */
+  text-align: left; /* Align text content to the left */
 }
 
 /* Headings */
@@ -16,8 +17,7 @@
   font-size: 26px;
   color: #333;
   margin-bottom: 24px;
-  text-align: center;
-
+  text-align: center; /* Ensure heading is aligned to the left */
 }
 
 /* Labels and Inputs */
@@ -27,9 +27,11 @@
   margin-bottom: 8px;
   color: #444;
   font-family: 'Inter', sans-serif;
+  display: block; /* Block display to ensure proper label alignment */
 }
 
-.input{
+/* Input and Textarea Styling */
+.input, .give-review-container textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -37,11 +39,17 @@
   background-color: #f7f7f7;
   font-size: 15px;
   font-family: 'Inter', sans-serif;
-/* Apply Inter to inputs */
+  box-sizing: border-box; /* Ensure the input box doesn't exceed its container */
+  margin-bottom: 20px; /* Add spacing between input fields */
+}
+
+.give-review-container textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 120px; /* Set a minimum height for the textarea */
 }
 
 .give-review-container button {
-
+  width: 100%; /* Button should span full width */
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -51,26 +59,46 @@
   font-weight: 600;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.give-review-container button:hover {
+  background-color: #2980b9; /* Darken background on hover */
 }
 
 .give-review-container .warning {
-  
   color: #e74c3c;
   font-size: 15px;
   margin-bottom: 12px;
   text-align: center;
   font-family: 'Inter', sans-serif;
 }
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  justify-content: flex-start; /* Align stars to the left */
+  margin-bottom: 20px; /* Add space below stars */
+}
+
 .star-rating i {
   font-size: 24px;
-  cursor: pointer;
   color: #ccc; /* Default empty star color */
+  transition: color 0.2s ease;
+  margin-right: 8px; /* Space between stars */
 }
 
-.star-rating i .star-filled {
-  color: #FFD700; /* Gold for filled stars */
+.star-rating .star-filled {
+  color: #FFD700; /* Gold color for filled stars */
 }
 
-.star-rating i .star-empty {
-  color: #ccc; /* Grey for empty stars */
+.star-rating .star-empty {
+  color: #ccc; /* Gray color for empty stars */
+}
+
+/* Hover effect for stars */
+.star-rating i:hover,
+.star-rating i:hover ~ i {
+  color: #FFD700;
 }
