@@ -68,9 +68,6 @@ return (
                    <Link to="/instant-consultation">Instant Consultation</Link>
                 </li>
                 <li className="link">
-                    <a href="#">Appointments</a>
-                </li>
-                <li className="link">
                     <a href="#">Health Blog</a>
                 </li>
                 <li className="link">
