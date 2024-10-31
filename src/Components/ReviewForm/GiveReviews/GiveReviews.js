@@ -1,38 +1,31 @@
 import React, { useState } from 'react';
 import './GiveReviews.css';
 import StarRating from './StarRating';
-  
-// Function component for giving reviews
+
 function GiveReviews({ consultation, onSubmit }) {
-  // State variables using useState hook
   const [formData, setFormData] = useState({
-    name: '',
+    doctorName: consultation.doctor.name, // Add doctor name here
     review: '',
     rating: 0,
-    id: consultation.id,
+    id: consultation.id, // Set the consultation ID
   });
   const [showWarning, setShowWarning] = useState(false);
 
-  // Function to handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.review && formData.name && formData.rating > 0) {
+    if (formData.review && formData.rating > 0) {
       setShowWarning(false);
       onSubmit(formData); // Submit the review data to parent (ReviewForm)
+      setFormData({ ...formData, review: '', rating: 0 }); // Clear the form after submission
     } else {
       setShowWarning(true); // Show warning if fields are empty
     }
-    setFormData({
-      name: '',
-      review: '',
-      rating: 0
-    });
   };
+
   const handleRatingChange = (newRating) => {
     setFormData({ ...formData, rating: newRating });
   };
@@ -43,12 +36,9 @@ function GiveReviews({ consultation, onSubmit }) {
       <form onSubmit={handleSubmit}>
         {showWarning && <p className="warning">Please fill out all fields.</p>}
         <div>
-            <label htmlFor="name">Name:</label>
-            <input classname="input" type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-          </div>
-        <div>
           <label htmlFor="review">Review:</label>
-          <textarea classname="input"
+          <textarea
+            className="input"
             id="review"
             name="review"
             value={formData.review}
