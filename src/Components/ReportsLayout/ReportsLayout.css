@@ -1,4 +1,4 @@
-.review-form-container {
+.report-form-container {
     margin: 20px;
     padding: 20px;
     background-color: #fff;
@@ -25,7 +25,7 @@
   }
   
   /* Make feedback buttons blue */
-  .feedback-button {
+  .report-button {
     padding: 8px 12px;
     background-color: #007BFF; /* Blue color */
     color: white;
@@ -37,6 +37,6 @@
   }
   
   /* Hover effect for feedback buttons */
-  .feedback-button:hover {
+  .report-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
   }

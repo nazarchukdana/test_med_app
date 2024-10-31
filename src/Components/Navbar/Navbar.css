@@ -78,42 +78,50 @@ nav {
     background-color: #fff;
     color: #000;
 }
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    display: none;
-    min-width: 120px;
-    padding: 8px 0;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-}
-/* Styling for the user welcome message */
-.welcome-user {
+.welcome_container {
     position: relative;
+    display: inline-block;
     cursor: pointer;
 }
-/* Display dropdown menu on hover */
-.welcome-user:hover .dropdown-menu {
-    display: block;
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+     /* Adjust as necessary */
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Remove padding */
+    background-color: #fff; /* White background for the dropdown */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+    border-radius: 8px; /* Rounded corners */
+    transition: display 0.3s ease; /* Smooth display transition */
 }
+
+.dropdown-menu.show {
+    display: block; /* Show dropdown when the class is added */
+}
+
 /* Styling for the items in the dropdown menu */
 .dropdown-menu li {
-    display: block;
-    width: 150px;
-    padding:5px;
+    padding: 10px 15px; /* Padding for dropdown items */
+    border-bottom: 1px solid #eee; /* Light separator line */
 }
+
+.dropdown-menu li:last-child {
+    border-bottom: none; /* Remove bottom border from last item */
+}
+
 /* Styling for links in the dropdown menu */
 .dropdown-menu li a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Block display for easier clicking */
+    transition: color 0.3s ease; /* Transition for hover effect */
 }
+
 /* Hover effect for links in the dropdown menu */
 .dropdown-menu li a:hover {
-    color: #2190ff;
+    color: #4b04e2; /* Change color on hover */
 }
 
 .nav__icon {

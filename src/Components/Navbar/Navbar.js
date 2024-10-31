@@ -84,8 +84,11 @@ return (
                 {isLoggedIn?(
           <>
             <li className="link" onClick={handleDropdown}>
-                <a href="#"><b>Welcome, {username}!</b>
-                {showDropdown && <ProfileCard name={name} phone={phone} email={email}/>}
+                <a><b>Welcome, {username}!</b>
+                <ul className={`dropdown-menu ${showDropdown ? 'show' : ''}`}>
+                            <li><Link to="/profile-card">Your Profile</Link></li>
+                            <li><Link to="/reports">Your Reports</Link></li>
+                </ul>
                 </a>
             </li>
             <li className="link">
