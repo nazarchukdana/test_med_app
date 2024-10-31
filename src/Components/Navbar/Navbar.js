@@ -1,12 +1,15 @@
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
+import ProfileCard from '../ProfileCard/ProfileCard';
 function Navbar(){
     const [click, setClick] = useState(false);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
     const[email,setEmail]=useState("");
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const handleClick = () => setClick(!click);
 
@@ -35,14 +38,19 @@ function Navbar(){
       setShowDropdown(!showDropdown);
     }
     useEffect(() => { 
-      const storedemail = sessionStorage.getItem("email");
-
-      if (storedemail) {
+      const storedName = sessionStorage.getItem('name');
+        const storedEmail = sessionStorage.getItem('email');
+        const storedPhone = sessionStorage.getItem('phone');
+        
+        if (storedEmail) {
             setIsLoggedIn(true);
-            const extractedUsername = storedemail.split('@')[0]; // Extract the part before "@"
+            const extractedUsername = storedEmail.split('@')[0];
             setUsername(extractedUsername);
-          }
-        }, []);
+            setName(storedName || 'User');
+            setEmail(storedEmail);
+            setPhone(storedPhone || 'N/A');
+        }
+    }, []);
 return (
     <div>
         <nav>
@@ -75,8 +83,10 @@ return (
                 </li>
                 {isLoggedIn?(
           <>
-            <li className="link">
-                <a href="#"><b>Welcome, {username}!</b></a>
+            <li className="link" onClick={handleDropdown}>
+                <a href="#"><b>Welcome, {username}!</b>
+                {showDropdown && <ProfileCard name={name} phone={phone} email={email}/>}
+                </a>
             </li>
             <li className="link">
               <button className="btn btn2" onClick={handleLogout}>

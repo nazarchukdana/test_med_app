@@ -1,0 +1,39 @@
+/* ProfileCard.css */
+.profile-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+}
+
+.profile-card h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.profile-card p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.logout-button {
+    background-color: #4B04E2;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.logout-button:hover {
+    background-color: #3a03b3;
+}
